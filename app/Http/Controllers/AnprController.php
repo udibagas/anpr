@@ -32,7 +32,7 @@ class AnprController extends Controller
         $client = new Client(['timeout' => 1]);
 
         try {
-            $client->request('GET', 'http://localhost:3000', ['query' => $data]);
+            $client->request('GET', 'http://localhost:3000/anpr', ['query' => $data]);
         } catch (\Throwable $th) {
             // Nothing todo
         }
