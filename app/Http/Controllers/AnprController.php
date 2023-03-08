@@ -27,12 +27,12 @@ class AnprController extends Controller
         $licensePlate = $jsonObject->ANPR->licensePlate;
         // Log::info('Plat nomor terdeteksi: ' . $licensePlate);
         // kirim ke express : ip & plat nomor
-        $data = ['licensePlate' => $licensePlate, 'ip' => $request->ip()]
+        $data = ['licensePlate' => $licensePlate, 'ip' => $request->ip()];
 
         $client = new Client(['timeout' => 1]);
 
         try {
-            $client->request('GET', 'http://localhost:3000', [ 'query' => $data ]);
+            $client->request('GET', 'http://localhost:3000', ['query' => $data]);
         } catch (\Throwable $th) {
             // Nothing todo
         }
